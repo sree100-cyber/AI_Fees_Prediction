@@ -111,25 +111,6 @@ python challenge.py     # bonus: budget question none of the systems were design
 | Weakness | No access to private data | Breaks on any unplanned phrasing | Less predictable — model-dependent tool-call reliability |
 | Best suited for | General FAQ, no private data needed | High-volume, fixed-format queries | Novel or multi-step queries requiring reasoning |
 
-## Screenshots
-
-Actual terminal output from running this lab (place these in a `screenshots/` folder in your repo root):
-
-### Setup check and chatbot (System 1)
-![Setup and chatbot output](screenshots/01_setup_and_chatbot.png)
-
-### Chatbot Q4 + rule-based workflow (System 2) + tools test
-![Workflow and tools output](screenshots/02_chatbot_workflow_tools.png)
-
-### Available models + setup check with final model
-![Model list and setup](screenshots/03_list_models_and_setup.png)
-
-### AI agent (System 3) — full run
-![Agent output](screenshots/04_agent_output.png)
-
-### Challenge question — workflow vs agent
-![Challenge output](screenshots/05_challenge_output.png)
-
 ## Notes on Model Choice
 
 `openai/gpt-oss-20b` on Groq occasionally produced malformed tool-call names (internal "harmony" format tokens leaking into the tool name), causing a `400 BadRequestError`. Switching to `qwen/qwen3.8-27b` resolved this — it called tools reliably across all test questions, including multi-step chains (lookup → lookup → calculate).
